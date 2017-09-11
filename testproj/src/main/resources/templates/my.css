@@ -1,0 +1,14 @@
+nav{
+    font-family: Times,serif;
+    font-size:25pt;
+    color: black;
+    font-weight:bolder;
+}
+footer{
+    position: fixed; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    padding: 10px; /* Поля вокруг текста */
+    background: #39b54a; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+}

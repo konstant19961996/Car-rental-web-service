@@ -1,0 +1,598 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<link rel="stylesheet" type="text/css" href="/my.css">-->
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../my.css" th:href="@{my.css}" />
+    <style type="text/css">
+        nav{
+            font-family: Times,serif;
+            font-size:15pt;
+            color: black;
+            font-weight:bolder;
+        }
+        footer {
+            position: fixed; /* Фиксированное положение*/
+            left: 0;
+            bottom: 0; /* Левый нижний угол*/
+            padding: 10px; /* Поля вокруг текста*/
+            background: #39b54a; /* Цвет фона*/
+            color: #fff; /* Цвет текста*/
+            width: 100%; /* Ширина слоя */
+        }
+    </style>
+    <style th:inline="text">
+        body{
+            background-image: url("@{$'mclaren_f1.jpg'}");
+            background-size: 1400px, 960px;
+        }
+    </style>
+    <title>Оптимальная аренда автомобиля</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script type="text/javascript" src="locations.js" ></script>
+    <script type="text/javascript"><!--
+    function dynamicSelect(id1, id2) {
+        if (document.getElementById && document.getElementsByTagName) {
+            var sel1 = document.getElementById(id1);
+            var sel2 = document.getElementById(id2);var clone = sel2.cloneNode(true); var clonedOptions = clone.getElementsByTagName("option");refreshDynamicSelectOptions(sel1, sel2, clonedOptions);sel1.onchange = function() {
+                refreshDynamicSelectOptions(sel1, sel2, clonedOptions);
+            }
+        }
+    }
+    function refreshDynamicSelectOptions(sel1, sel2, clonedOptions) {
+        while (sel2.options.length) {
+            sel2.remove(0);
+        }
+        var pattern1 = /( |^)(select)( |$)/;
+        var pattern2 = new RegExp("( |^)(" + sel1.options[sel1.selectedIndex].value + ")( |$)");
+        for (var i = 0; i < clonedOptions.length; i++) {
+            if (clonedOptions[i].className.match(pattern1) ||
+                    clonedOptions[i].className.match(pattern2)) {
+                sel2.appendChild(clonedOptions[i].cloneNode(true));
+            }
+        }
+    }
+    window.onload = function() {
+
+        dynamicSelect("ettcountry", "ettcity");
+        dynamicSelect("dropcountry", "dropcity");
+    }
+    //--></script>
+</head>
+
+<body>
+<h1 style="color:black" ><center>Аренда автомобиля в любой точке мира</center></h1>
+<nav><center>
+    <a target = "_new" th:href="@{/new1.html}" title="Виды аренды">Аренда в России и за рубежом</a>|
+    <!--<a target = "_new" href="Discography.html" title="Ссылка">Дискография</a> |-->
+    <a target = "_new" href="/new2" title="Ссылка">Оптимизация стоимости</a> |
+    <a target = "_new" href="bew3.html" title="Ссылка">Контакты</a>
+</center></nav>
+<h1>Введите нужные параметры</h1>
+<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    <div class="head">Место выдачи автомобиля:</div>
+    <div id="dropoffLocationSec" class="section">
+        <div class="head">Страна:</div>
+        <div class="dropdowns" >
+                <select  id="ettcountry" name="ettcountry" >
+                    <option value="select">--- Выберите страну ---</option>
+                    <optgroup label="--- Все страны---">
+                        <option value="AL0">Albania</option>
+                        <option value="AO0">Angola</option>
+                        <option value="AG0">Antigua And Barbuda</option>
+                        <option value="AR0">Argentina</option>
+                        <option value="AM0">Armenia</option>
+                        <option value="AB0">Aruba</option>
+                        <option value="AU0">Australia</option>
+                        <option value="AT0">Austria</option>
+                        <option value="BS0">Bahamas</option>
+                        <option value="BH0">Bahrain</option>
+                        <option value="BA0">Belarus</option>
+                        <option value="BE0">Belgium</option>
+                        <option value="BZ0">Belize</option>
+                        <option value="BO0">Bolivia</option>
+                        <option value="QB0">Bosnia And Herzegovina</option>
+                        <option value="BW0">Botswana</option>
+                        <option value="BR0">Brazil</option>
+                        <option value="BG0">Bulgaria</option>
+                        <option value="CAAB">Canada Alberta</option>
+                        <option value="CABC">Canada British Columbia</option>
+                        <option value="CAMB">Canada Manitoba</option>
+                        <option value="CANB">Canada New Brunswick</option>
+                        <option value="CANF">Canada Newfoundland</option>
+                        <option value="CANT">Canada Northwest Territories</option>
+                        <option value="CANS">Canada Nova Scotia</option>
+                        <option value="CAON">Canada Ontario</option>
+                        <option value="CAPE">Canada Prince Edward Island</option>
+                        <option value="CAPQ">Canada Quebec</option>
+                        <option value="CASK">Canada Saskatchewan</option>
+                        <option value="CAYT">Canada Yukon</option>
+                        <option value="CL0">Chile</option>
+                        <option value="CK0">Cook Islands</option>
+                        <option value="CR0">Costa Rica</option>
+                        <option value="HR0">Croatia</option>
+                        <option value="CY0">Cyprus</option>
+                        <option value="CS0">Czech Republic</option>
+                        <option value="DK0">Denmark</option>
+                        <option value="DO0">Dominican Republic</option>
+                        <option value="EC0">Ecuador</option>
+                        <option value="EG0">Egypt</option>
+                        <option value="EL0">El Salvador</option>
+                        <option value="EE0">Estonia</option>
+                        <option value="FO0">Faroe Islands</option>
+                        <option value="FJ0">Fiji</option>
+                        <option value="FI0">Finland</option>
+                        <option value="FR0">France</option>
+                        <option value="GF0">French Guiana</option>
+                        <option value="GE0">Georgia</option>
+                        <option value="DE0" selected="selected" >Germany</option>
+                        <option value="CT0">Grand Cayman</option>
+                        <option value="GR0">Greece</option>
+                        <option value="GP0">Guadeloupe </option>
+                        <option value="GU0">Guam</option>
+                        <option value="GT0">Guatemala</option>
+                        <option value="HT0">Haiti</option>
+                        <option value="HD0">Honduras</option>
+                        <option value="HU0">Hungary</option>
+                        <option value="IS0">Iceland</option>
+                        <option value="IN0">India</option>
+                        <option value="IE0">Ireland</option>
+                        <option value="IL0">Israel</option>
+                        <option value="IT0">Italy</option>
+                        <option value="CI0">Ivory Coast</option>
+                        <option value="JM0">Jamaica</option>
+                        <option value="JP0">Japan</option>
+                        <option value="JO0">Jordan</option>
+                        <option value="KE0">Kenya</option>
+                        <option value="KW0">Kuwait</option>
+                        <option value="LV0">Latvia</option>
+                        <option value="LB0">Lebanon</option>
+                        <option value="LS0">Lesotho</option>
+                        <option value="LT0">Lithuania</option>
+                        <option value="LU0">Luxembourg</option>
+                        <option value="MO0">Macedonia</option>
+                        <option value="MG0">Madagascar</option>
+                        <option value="MT0">Malta</option>
+                        <option value="MQ0">Martinique</option>
+                        <option value="MU0">Mauritius</option>
+                        <option value="YT0">Mayotte</option>
+                        <option value="MX0">Mexico</option>
+                        <option value="ME0">Montenegro</option>
+                        <option value="MA0">Morocco</option>
+                        <option value="SW0">Namibia</option>
+                        <option value="AN0">Netherlands Antilles</option>
+                        <option value="NL0">Netherlands</option>
+                        <option value="NC0">New Caledonia</option>
+                        <option value="NZ0">New Zealand</option>
+                        <option value="NI0">Nicaragua</option>
+                        <option value="MR0">Northern Mariana Islands</option>
+                        <option value="NO0">Norway</option>
+                        <option value="OM0">Oman</option>
+                        <option value="PA0">Panama</option>
+                        <option value="PE0">Peru</option>
+                        <option value="PH0">Philippines</option>
+                        <option value="PL0">Poland</option>
+                        <option value="PT0">Portugal</option>
+                        <option value="PR0">Puerto Rico</option>
+                        <option value="QA0">Qatar</option>
+                        <option value="RI0">Reunion</option>
+                        <option value="RO0">Romania</option>
+                        <option value="LC0">Saint Lucia</option>
+                        <option value="SA0">Saudi Arabia</option>
+                        <option value="SN0">Senegal</option>
+                        <option value="YU0">Serbia</option>
+                        <option value="SG0">Singapore</option>
+                        <option value="QV0">Slovakia</option>
+                        <option value="QS0">Slovenia</option>
+                        <option value="ZA0">South Africa</option>
+                        <option value="KP0">South Korea</option>
+                        <option value="ES0">Spain</option>
+                        <option value="LK0">Sri Lanka</option>
+                        <option value="BY0">St. Barthélemy </option>
+                        <option value="FW0">St. Martin</option>
+                        <option value="SR0">Suriname</option>
+                        <option value="SZ0">Swaziland</option>
+                        <option value="SE0">Sweden</option>
+                        <option value="CH0">Switzerland</option>
+                        <option value="TH0">Thailand</option>
+                        <option value="TG0">Togo</option>
+                        <option value="TT0">Trinidad And Tobago</option>
+                        <option value="TN0">Tunisia</option>
+                        <option value="TR0">Turkey</option>
+                        <option value="TC0">Turks And Caicos Islands</option>
+                        <option value="UA0">Ukraine</option>
+                        <option value="UE0">United Arab Emirates</option>
+                        <option value="GB0">United Kingdom</option>
+                        <option value="USAL">United States Alabama</option>
+                        <option value="USAK">United States Alaska</option>
+                        <option value="USAZ">United States Arizona</option>
+                        <option value="USCA">United States California</option>
+                        <option value="USCO">United States Colorado</option>
+                        <option value="USCT">United States Connecticut</option>
+                        <option value="USDE">United States Delaware</option>
+                        <option value="USDC">United States District Of Columbia</option>
+                        <option value="USFL">United States Florida</option>
+                        <option value="USGA">United States Georgia</option>
+                        <option value="USHI">United States Hawaii</option>
+                        <option value="USID">United States Idaho</option>
+                        <option value="USIL">United States Illinois</option>
+                        <option value="USIN">United States Indiana</option>
+                        <option value="USIA">United States Iowa</option>
+                        <option value="USKS">United States Kansas</option>
+                        <option value="USKY">United States Kentucky</option>
+                        <option value="USLA">United States Louisiana</option>
+                        <option value="USME">United States Maine</option>
+                        <option value="USMD">United States Maryland</option>
+                        <option value="USMA">United States Massachusetts</option>
+                        <option value="USMI">United States Michigan</option>
+                        <option value="USMN">United States Minnesota</option>
+                        <option value="USMS">United States Mississippi</option>
+                        <option value="USMO">United States Missouri</option>
+                        <option value="USMT">United States Montana</option>
+                        <option value="USNE">United States Nebraska</option>
+                        <option value="USNV">United States Nevada</option>
+                        <option value="USNH">United States New Hampshire</option>
+                        <option value="USNJ">United States New Jersey</option>
+                        <option value="USNM">United States New Mexico</option>
+                        <option value="USNY">United States New York</option>
+                        <option value="USNC">United States North Carolina</option>
+                        <option value="USND">United States North Dakota</option>
+                        <option value="USOH">United States Ohio</option>
+                        <option value="USOK">United States Oklahoma</option>
+                        <option value="USOR">United States Oregon</option>
+                        <option value="USPA">United States Pennsylvania</option>
+                        <option value="USRI">United States Rhode Island</option>
+                        <option value="USSC">United States South Carolina</option>
+                        <option value="USSD">United States South Dakota</option>
+                        <option value="USTN">United States Tennessee</option>
+                        <option value="USTX">United States Texas</option>
+                        <option value="USUT">United States Utah</option>
+                        <option value="USVT">United States Vermont</option>
+                        <option value="USVA">United States Virginia</option>
+                        <option value="USWA">United States Washington</option>
+                        <option value="USWV">United States West Virginia</option>
+                        <option value="USWI">United States Wisconsin</option>
+                        <option value="USWY">United States Wyoming</option>
+                        <option value="UY0">Uruguay</option>
+                        <option value="VI0">Us Virgin Islands</option>
+                        <option value="NH0">Vanuatu</option>
+                        <option value="VE0">Venezuela</option>
+                        <option value="VN0">Vietnam</option>
+                        <option value="YD0">Yemen</option>
+                        <option value="KF0">Zimbabwe</option>
+                    </optgroup>
+                </select>
+        </div>
+    </div>
+    <div id="dropoffLocationSec" class="section">
+        <div class="head">Город:</div>
+        <div class="dropdowns" >
+                <select  id="ettcity" name="ettcity" th:field="*{ettcity}">
+                    <option class="select" value="select">Выберите город...</option>
+                    <option class="USCA" value="SFO">San Francisco</option>
+                    <option class="USCA" value="LAX">Los Angeles</option>
+                    <option class="USCA" value="SAN">San Diego</option>
+                    <option class="USCA" value="BFL">Bakersfield</option>
+                    <option class="USCA" value="BUR">Burbank</option>
+                    <option class="USCA" value="CLD">Carlsbad</option>
+                    <option class="USCA" value="FAT">Fresno</option>
+                    <option class="USCA" value="LGB">Long Beach</option>
+                    <option class="USCA" value="MRY">Monterey</option>
+                    <option class="USCA" value="OAK">Oakland</option>
+                    <option class="USCA" value="ONT">Ontario</option>
+                    <option class="USCA" value="PSP">Palm Springs</option>
+                    <option class="USCA" value="RDD">Redding</option>
+                    <option class="USCA" value="SMF">Sacramento</option>
+                    <option class="USCA" value="SJC">San Jose</option>
+                    <option class="USCA" value="SBP">San Luis Obispo</option>
+                    <option class="USCA" value="SBA">Santa Barbara</option>
+                    <option class="USCA" value="SMX">Santa Maria</option>
+                    <option class="USCA" value="STS">Santa Rosa</option>
+                    <option class="USCA" value="SCK">Stockton</option>
+                    <option class="USNY" value="JFK">New York JFK</option>
+                    <option class="USTX" value="DFW">Dallas Fort Worth</option>
+                    <option class="USTX" value="IAH">Houston Intercontinental</option>
+                </select>
+        </div>
+    </div>
+    <table><tr>
+        <td valign="middle"><label>Дата и время выдачи:</label></td>
+        <td valign="middle"><input type="date" name="calendar" value="03.05.2017" th:field="*{ettdate}"/></td>
+        <td valign="middle">
+            <select name="etttimehour" id="etttimehour" class="hideOnLocation" th:field="*{etttimeh}" >
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12" selected="selected">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+            </select>
+        </td>
+        <td valign="middle">
+            <select name="etttimeminute" id="etttimeminute" class="hideOnLocation" th:field="*{etttimem}">
+                <option value="00" selected="selected">00</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
+        </td>
+    </tr></table>
+    <div class="head">Место возврата автомобиля:</div>
+    <div id="dropoffLocationSec" class="section">
+        <div class="head">Страна:</div>
+        <div class="dropdowns" >
+            <select  id="dropcountry" name="dropcountry"  >
+                <option value="select">--- Выберите страну ---</option>
+                <optgroup label="--- Все страны---">
+                    <option value="AL0">Albania</option>
+                    <option value="AO0">Angola</option>
+                    <option value="AG0">Antigua And Barbuda</option>
+                    <option value="AR0">Argentina</option>
+                    <option value="AM0">Armenia</option>
+                    <option value="AB0">Aruba</option>
+                    <option value="AU0">Australia</option>
+                    <option value="AT0">Austria</option>
+                    <option value="BS0">Bahamas</option>
+                    <option value="BH0">Bahrain</option>
+                    <option value="BA0">Belarus</option>
+                    <option value="BE0">Belgium</option>
+                    <option value="BZ0">Belize</option>
+                    <option value="BO0">Bolivia</option>
+                    <option value="QB0">Bosnia And Herzegovina</option>
+                    <option value="BW0">Botswana</option>
+                    <option value="BR0">Brazil</option>
+                    <option value="BG0">Bulgaria</option>
+                    <option value="CAAB">Canada Alberta</option>
+                    <option value="CABC">Canada British Columbia</option>
+                    <option value="CAMB">Canada Manitoba</option>
+                    <option value="CANB">Canada New Brunswick</option>
+                    <option value="CANF">Canada Newfoundland</option>
+                    <option value="CANT">Canada Northwest Territories</option>
+                    <option value="CANS">Canada Nova Scotia</option>
+                    <option value="CAON">Canada Ontario</option>
+                    <option value="CAPE">Canada Prince Edward Island</option>
+                    <option value="CAPQ">Canada Quebec</option>
+                    <option value="CASK">Canada Saskatchewan</option>
+                    <option value="CAYT">Canada Yukon</option>
+                    <option value="CL0">Chile</option>
+                    <option value="CK0">Cook Islands</option>
+                    <option value="CR0">Costa Rica</option>
+                    <option value="HR0">Croatia</option>
+                    <option value="CY0">Cyprus</option>
+                    <option value="CS0">Czech Republic</option>
+                    <option value="DK0">Denmark</option>
+                    <option value="DO0">Dominican Republic</option>
+                    <option value="EC0">Ecuador</option>
+                    <option value="EG0">Egypt</option>
+                    <option value="EL0">El Salvador</option>
+                    <option value="EE0">Estonia</option>
+                    <option value="FO0">Faroe Islands</option>
+                    <option value="FJ0">Fiji</option>
+                    <option value="FI0">Finland</option>
+                    <option value="FR0">France</option>
+                    <option value="GF0">French Guiana</option>
+                    <option value="GE0">Georgia</option>
+                    <option value="DE0" selected="selected" >Germany</option>
+                    <option value="CT0">Grand Cayman</option>
+                    <option value="GR0">Greece</option>
+                    <option value="GP0">Guadeloupe </option>
+                    <option value="GU0">Guam</option>
+                    <option value="GT0">Guatemala</option>
+                    <option value="HT0">Haiti</option>
+                    <option value="HD0">Honduras</option>
+                    <option value="HU0">Hungary</option>
+                    <option value="IS0">Iceland</option>
+                    <option value="IN0">India</option>
+                    <option value="IE0">Ireland</option>
+                    <option value="IL0">Israel</option>
+                    <option value="IT0">Italy</option>
+                    <option value="CI0">Ivory Coast</option>
+                    <option value="JM0">Jamaica</option>
+                    <option value="JP0">Japan</option>
+                    <option value="JO0">Jordan</option>
+                    <option value="KE0">Kenya</option>
+                    <option value="KW0">Kuwait</option>
+                    <option value="LV0">Latvia</option>
+                    <option value="LB0">Lebanon</option>
+                    <option value="LS0">Lesotho</option>
+                    <option value="LT0">Lithuania</option>
+                    <option value="LU0">Luxembourg</option>
+                    <option value="MO0">Macedonia</option>
+                    <option value="MG0">Madagascar</option>
+                    <option value="MT0">Malta</option>
+                    <option value="MQ0">Martinique</option>
+                    <option value="MU0">Mauritius</option>
+                    <option value="YT0">Mayotte</option>
+                    <option value="MX0">Mexico</option>
+                    <option value="ME0">Montenegro</option>
+                    <option value="MA0">Morocco</option>
+                    <option value="SW0">Namibia</option>
+                    <option value="AN0">Netherlands Antilles</option>
+                    <option value="NL0">Netherlands</option>
+                    <option value="NC0">New Caledonia</option>
+                    <option value="NZ0">New Zealand</option>
+                    <option value="NI0">Nicaragua</option>
+                    <option value="MR0">Northern Mariana Islands</option>
+                    <option value="NO0">Norway</option>
+                    <option value="OM0">Oman</option>
+                    <option value="PA0">Panama</option>
+                    <option value="PE0">Peru</option>
+                    <option value="PH0">Philippines</option>
+                    <option value="PL0">Poland</option>
+                    <option value="PT0">Portugal</option>
+                    <option value="PR0">Puerto Rico</option>
+                    <option value="QA0">Qatar</option>
+                    <option value="RI0">Reunion</option>
+                    <option value="RO0">Romania</option>
+                    <option value="LC0">Saint Lucia</option>
+                    <option value="SA0">Saudi Arabia</option>
+                    <option value="SN0">Senegal</option>
+                    <option value="YU0">Serbia</option>
+                    <option value="SG0">Singapore</option>
+                    <option value="QV0">Slovakia</option>
+                    <option value="QS0">Slovenia</option>
+                    <option value="ZA0">South Africa</option>
+                    <option value="KP0">South Korea</option>
+                    <option value="ES0">Spain</option>
+                    <option value="LK0">Sri Lanka</option>
+                    <option value="BY0">St. Barthélemy </option>
+                    <option value="FW0">St. Martin</option>
+                    <option value="SR0">Suriname</option>
+                    <option value="SZ0">Swaziland</option>
+                    <option value="SE0">Sweden</option>
+                    <option value="CH0">Switzerland</option>
+                    <option value="TH0">Thailand</option>
+                    <option value="TG0">Togo</option>
+                    <option value="TT0">Trinidad And Tobago</option>
+                    <option value="TN0">Tunisia</option>
+                    <option value="TR0">Turkey</option>
+                    <option value="TC0">Turks And Caicos Islands</option>
+                    <option value="UA0">Ukraine</option>
+                    <option value="UE0">United Arab Emirates</option>
+                    <option value="GB0">United Kingdom</option>
+                    <option value="USAL">United States Alabama</option>
+                    <option value="USAK">United States Alaska</option>
+                    <option value="USAZ">United States Arizona</option>
+                    <option value="USCA">United States California</option>
+                    <option value="USCO">United States Colorado</option>
+                    <option value="USCT">United States Connecticut</option>
+                    <option value="USDE">United States Delaware</option>
+                    <option value="USDC">United States District Of Columbia</option>
+                    <option value="USFL">United States Florida</option>
+                    <option value="USGA">United States Georgia</option>
+                    <option value="USHI">United States Hawaii</option>
+                    <option value="USID">United States Idaho</option>
+                    <option value="USIL">United States Illinois</option>
+                    <option value="USIN">United States Indiana</option>
+                    <option value="USIA">United States Iowa</option>
+                    <option value="USKS">United States Kansas</option>
+                    <option value="USKY">United States Kentucky</option>
+                    <option value="USLA">United States Louisiana</option>
+                    <option value="USME">United States Maine</option>
+                    <option value="USMD">United States Maryland</option>
+                    <option value="USMA">United States Massachusetts</option>
+                    <option value="USMI">United States Michigan</option>
+                    <option value="USMN">United States Minnesota</option>
+                    <option value="USMS">United States Mississippi</option>
+                    <option value="USMO">United States Missouri</option>
+                    <option value="USMT">United States Montana</option>
+                    <option value="USNE">United States Nebraska</option>
+                    <option value="USNV">United States Nevada</option>
+                    <option value="USNH">United States New Hampshire</option>
+                    <option value="USNJ">United States New Jersey</option>
+                    <option value="USNM">United States New Mexico</option>
+                    <option value="USNY">United States New York</option>
+                    <option value="USNC">United States North Carolina</option>
+                    <option value="USND">United States North Dakota</option>
+                    <option value="USOH">United States Ohio</option>
+                    <option value="USOK">United States Oklahoma</option>
+                    <option value="USOR">United States Oregon</option>
+                    <option value="USPA">United States Pennsylvania</option>
+                    <option value="USRI">United States Rhode Island</option>
+                    <option value="USSC">United States South Carolina</option>
+                    <option value="USSD">United States South Dakota</option>
+                    <option value="USTN">United States Tennessee</option>
+                    <option value="USTX">United States Texas</option>
+                    <option value="USUT">United States Utah</option>
+                    <option value="USVT">United States Vermont</option>
+                    <option value="USVA">United States Virginia</option>
+                    <option value="USWA">United States Washington</option>
+                    <option value="USWV">United States West Virginia</option>
+                    <option value="USWI">United States Wisconsin</option>
+                    <option value="USWY">United States Wyoming</option>
+                    <option value="UY0">Uruguay</option>
+                    <option value="VI0">Us Virgin Islands</option>
+                    <option value="NH0">Vanuatu</option>
+                    <option value="VE0">Venezuela</option>
+                    <option value="VN0">Vietnam</option>
+                    <option value="YD0">Yemen</option>
+                    <option value="KF0">Zimbabwe</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <div id="dropoffLocationSec" class="section">
+        <div class="head">Город:</div>
+        <div class="dropdowns" >
+            <select  id="dropcity" name="dropcity" th:field="*{dropcity}">
+                <option class="select" value="select">Выберите город...</option>
+                <option class="USCA" value="SFO">San Francisco</option>
+                <option class="USCA" value="LAX">Los Angeles</option>
+                <option class="USCA" value="SAN">San Diego</option>
+                <option class="USCA" value="SNO">Orange County</option>
+                <option class="USNY" value="JFK">New York JFK</option>
+                <option class="USTX" value="DFW">Dallas Fort Worth</option>
+                <option class="USTX" value="IAH">Houston Intercontinental</option>
+            </select>
+        </div>
+    </div>
+    <table><tr>
+        <td valign="middle"><label>Дата и время возврата:</label></td>
+        <td valign="middle"><input type="date" name="calendar" value="28.03.2017" th:field="*{dropdate}"/></td>
+        <td valign="middle">
+            <select name="droptimehour" id="droptimehour" class="hideOnLocation" th:field="*{droptimeh}">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12" selected="selected">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+            </select>
+        </td>
+        <td valign="middle">
+            <select name="droptimeminute" id="droptimeminute" class="hideOnLocation" th:field="*{droptimem}">
+                <option value="00" selected="selected">00</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
+        </td>
+    </tr></table>
+    <p><input type="submit" value="Смотреть предложения" /> <input type="reset" value="Очистить" /></p>
+</form>
+<footer position="absolute">
+        Разработчик - Константин Бутузов. Все права защищены. &copy; 2017. Оптимизация стоимости аренды автомобиля.
+</footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../my.css" th:href="@{my.css}" />
+    <title>Оптимальная аренда автомобиля</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Результат запроса:</h1>
+<p th:text="'Место выдачи: ' + ${greeting.ettcity}" />
+<table><tr>
+    <td><p th:text="'Дата выдачи: ' + ${greeting.ettdate}" /></td>
+    <td><p th:text="'Время выдачи: ' + ${greeting.etttimeh}+ ':'+${greeting.etttimem}" /></td>
+</tr></table>
+<p th:text="'Место возврата: ' + ${greeting.dropcity}" />
+<table><tr>
+    <td><p th:text="'Время возврата: ' + ${greeting.dropdate}" /></td>
+    <td><p th:text="'Время выдачи: ' + ${greeting.droptimeh}+ ':'+${greeting.droptimem}" /></td>
+</tr></table>
+
+<!--<p th:text="'Тест: ' + ${greeting.teststr}" />-->
+<p th:text="'Тест: ' + ${greeting.testmass[0]}" />
+<p th:text=" ${greeting.testmass[1]}" />
+<p th:text=" ${greeting.testmass[2]}" />
+<p th:text=" ${greeting.testmass[3]}" />
+<p th:text="${greeting.testmass[4]}" />
+<p th:text=" ${greeting.testmass[5]}" />
+<p th:text="${greeting.testmass[6]}" />
+<p th:text=" ${greeting.testmass[7]}" />
+<p th:text=" ${greeting.testmass[8]}" />
+<p th:text=" ${greeting.testmass[9]}" />
+<p th:text=" ${greeting.testmass[10]}" />
+<p th:text=" ${greeting.testmass[11]}" />
+<p th:text=" ${greeting.testmass[12]}" />
+<p th:text=" ${greeting.testmass[13]}" />
+<p th:text=" ${greeting.testmass[14]}" /><!--
+<p th:text=" ${greeting.testmass[15]}" />
+<p th:text=" ${greeting.testmass[16]}" />
+<p th:text=" ${greeting.testmass[17]}" />
+<p th:text=" ${greeting.testmass[18]}" />
+<p th:text=" ${greeting.testmass[19]}" />
+<p th:text=" ${greeting.testmass[20]}" />
+<p th:text=" ${greeting.testmass[21]}" />
+<p th:text=" ${greeting.testmass[22]}" />
+<p th:text=" ${greeting.testmass[23]}" />
+<p th:text=" ${greeting.testmass[24]}" />
+<p th:text=" ${greeting.testmass[25]}" />
+<p th:text=" ${greeting.testmass[26]}" />
+<p th:text=" ${greeting.testmass[27]}" />
+<p th:text=" ${greeting.testmass[28]}" />
+<p th:text=" ${greeting.testmass[29]}" />
+<p th:text=" ${greeting.testmass[30]}" />
+<p th:text=" ${greeting.testmass[31]}" />
+<p th:text=" ${greeting.testmass[32]}" />
+<p th:text=" ${greeting.testmass[33]}" />
+<p th:text=" ${greeting.testmass[34]}" />
+<p th:text=" ${greeting.testmass[35]}" />
+<p th:text=" ${greeting.testmass[36]}" />
+<p th:text=" ${greeting.testmass[37]}" />
+<p th:text=" ${greeting.testmass[38]}" />
+<p th:text=" ${greeting.testmass[39]}" />
+<p th:text=" ${greeting.testmass[40]}" />
+<p th:text=" ${greeting.testmass[41]}" />
+<p th:text=" ${greeting.testmass[42]}" />
+<p th:text=" ${greeting.testmass[43]}" />
+<p th:text=" ${greeting.testmass[44]}" />
+<p th:text=" ${greeting.testmass[45]}" />
+<p th:text=" ${greeting.testmass[46]}" />
+<p th:text=" ${greeting.testmass[47]}" />
+<p th:text=" ${greeting.testmass[48]}" />
+<p th:text=" ${greeting.testmass[49]}" />
+<p th:text=" ${greeting.testmass[50]}" />
+<p th:text=" ${greeting.testmass[51]}" />
+<p th:text=" ${greeting.testmass[52]}" />
+<p th:text=" ${greeting.testmass[53]}" />
+<p th:text=" ${greeting.testmass[54]}" />
+<p th:text=" ${greeting.testmass[55]}" />
+<p th:text=" ${greeting.testmass[56]}" />
+<p th:text=" ${greeting.testmass[57]}" />
+<p th:text=" ${greeting.testmass[58]}" />
+<p th:text=" ${greeting.testmass[59]}" />
+<p th:text=" ${greeting.testmass[60]}" />
+<p th:text=" ${greeting.testmass[61]}" />
+<p th:text=" ${greeting.testmass[62]}" />
+<p th:text=" ${greeting.testmass[63]}" />
+<p th:text=" ${greeting.testmass[64]}" />
+<p th:text=" ${greeting.testmass[65]}" />
+<p th:text=" ${greeting.testmass[66]}" />
+<p th:text=" ${greeting.testmass[67]}" />
+<p th:text=" ${greeting.testmass[68]}" />
+<p th:text=" ${greeting.testmass[69]}" />-->
+
+
+
+<p id="Mini" />
+
+<!--<script type="text/javascript">
+    var i=0;
+    for (i=0;i<=5;i++)
+    {
+        document.write(greeting.testmass[i]);
+        document.write("<br />");
+    }
+</script>-->
+<!--<script>
+   (function() {
+        var arr = greeting.testmass,
+        elem = document.getElementById( 'Mini' ), i = -1;
+        return function() {
+            if ( arr[i]!=null ) {
+                elem.innerHTML += arr[ i ] + '<br>';
+            }
+        }();
+    })();
+</script>-->
+
+
+<a href="/greeting">Изменить параметры</a>
+</body>
+</html>
